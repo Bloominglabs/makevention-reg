@@ -1,4 +1,18 @@
 Makevention::Application.routes.draw do
+  get "person/new"
+  get "person/create"
+  get "person/update"
+  get "person/edit"
+  get "person/destroy"
+  get "person/index"
+  get "person/show"
+  get "contact_info/new"
+  get "contact_info/create"
+  get "contact_info/update"
+  get "contact_info/edit"
+  get "contact_info/destroy"
+  get "contact_info/index"
+  get "contact_info/show"
   get "relationships/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
