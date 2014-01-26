@@ -1,0 +1,18 @@
+<%= form_for :person, url: people_path do |f| %>
+    <p>
+      <%= f.label :firstName %><br>
+      <%= f.text_field :firstName %>
+    </p>
+    <p>
+      <%= f.label :lastName %><br>
+      <%= f.text_field :lastName %>
+    </p>
+    <p>
+      <%= f.label :selfNotes %><br>
+      <%= f.text_area :selfNotes %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
