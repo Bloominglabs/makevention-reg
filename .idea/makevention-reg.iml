@@ -126,6 +126,7 @@
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v1.5.3, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.0.4, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.8.1, ruby-1.9.3-p484) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.3, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.5.4, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.25.1, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v4.7.5, ruby-1.9.3-p484) [gem]" level="application" />
@@ -137,7 +138,6 @@
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.0.2, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.1.1, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.1.1, ruby-1.9.3-p484) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.13, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v4.0.1, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.0, ruby-1.9.3-p484) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.10.1, ruby-1.9.3-p484) [gem]" level="application" />
