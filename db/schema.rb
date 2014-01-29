@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126202412) do
+ActiveRecord::Schema.define(version: 20140129052110) do
+
+  create_table "annual_registrations", force: true do |t|
+    t.integer  "eventId"
+    t.boolean  "sales"
+    t.boolean  "paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blorps", force: true do |t|
     t.datetime "created_at"
@@ -27,6 +35,32 @@ ActiveRecord::Schema.define(version: 20140126202412) do
     t.string   "addressCity"
     t.string   "addressState"
     t.string   "addressZip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exhibit_resources", force: true do |t|
+    t.integer  "electricalRequirements"
+    t.integer  "noiseLevels"
+    t.integer  "internet"
+    t.string   "radioFrequencies"
+    t.integer  "safetyIssues"
+    t.string   "safetyIssuesDescription"
+    t.boolean  "water"
+    t.boolean  "exhaust"
+    t.boolean  "sanitation"
+    t.string   "other"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exhibit_spaces", force: true do |t|
+    t.integer  "floorSpaceRequirement"
+    t.string   "floorSpaceNote"
+    t.string   "activities"
+    t.integer  "tableCount"
+    t.integer  "chairCount"
+    t.integer  "locationPreference"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

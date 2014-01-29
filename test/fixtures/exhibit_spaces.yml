@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  floorSpaceRequirement: 
+  floorSpaceNote: MyString
+  activities: MyString
+  tableCount: 
+  chairCount: 
+  locationPreference: 
+
+two:
+  floorSpaceRequirement: 
+  floorSpaceNote: MyString
+  activities: MyString
+  tableCount: 
+  chairCount: 
+  locationPreference: 
