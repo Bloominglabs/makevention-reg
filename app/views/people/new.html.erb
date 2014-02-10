@@ -1,4 +1,15 @@
 <%= form_for :person, url: people_path do |f| %>
+    <% if @person.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@person.errors.count, "error") %> prohibited
+            this person from being saved:</h2>
+          <ul>
+            <% @person.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
     <p>
       <%= f.label :firstName %><br>
       <%= f.text_field :firstName %>
@@ -7,6 +18,9 @@
       <%= f.label :lastName %><br>
       <%= f.text_field :lastName %>
     </p>
+    <%= f.fields_for :user do |user| %>
+        <%= render "user", :f => user %>
+    <% end %>
     <p>
       <%= f.label :selfNotes %><br>
       <%= f.text_area :selfNotes %>
@@ -16,3 +30,5 @@
       <%= f.submit %>
     </p>
 <% end %>
+
+<%= link_to 'Back', people_path %>
