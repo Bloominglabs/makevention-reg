@@ -25,8 +25,22 @@
       <%= f.password_field :password_confirmation %>
     </p>
 
-    <%= f.fields_for :person do |person| %>
-        <%= render "person", :f => person %>
+    <%= f.fields_for :person do |p| %>
+        <%#= render "person", :p => person %>
+        <p>
+          <%= p.label :firstName %><br>
+          <%= p.text_field :firstName %>
+        </p>
+        <p>
+          <%= p.label :lastName %><br>
+          <%= p.text_field :lastName %>
+        </p>
+        <%= p.fields_for :contact_info, :hidden_field_id => false do |c| %>
+            <p>
+              <%= c.label :email %><br>
+              <%= c.text_field :email %>
+            </p>
+        <% end %>
     <% end %>
     <%#= render partial: "person", locals: {person: @user.person} %>
 

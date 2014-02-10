@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
   has_one :user, autosave: true
-  has_one :contact_info, dependent: :destroy
+  belongs_to :contact_info, autosave: true
   accepts_nested_attributes_for :user
-
+  accepts_nested_attributes_for :contact_info
 end

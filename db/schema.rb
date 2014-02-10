@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 20140131184954) do
   end
 
   create_table "organizations", force: true do |t|
+    t.string   "orgName"
+    t.integer  "contact_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140131184954) do
     t.string   "selfNotes"
     t.boolean  "active"
     t.string   "adminNotes"
+    t.integer  "contact_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,3 +2,13 @@
       <%= f.label :firstName %><br>
       <%= f.text_field :firstName %>
     </p>
+    <p>
+      <%= f.label :lastName %><br>
+      <%= f.text_field :lastName %>
+    </p>
+    <%= f.fields_for :contact_info do |contact_info| %>
+        <p>
+          <%= contact_info.label :email %><br>
+          <%= contact_info.text_field :email %>
+        </p>
+    <% end %>

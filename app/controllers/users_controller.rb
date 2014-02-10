@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def new
+    #@contact_info = ContactInfo.new
     @person = Person.new
+    @person.build_contact_info
     @user = User.new
     @user.person = @person
   end
@@ -43,5 +45,5 @@ end
 
 private
 def createuser_params
-  params.require(:user).permit(:username, :password, :password_confirmation, person_attributes: [:firstName])
+  params.require(:user).permit(:username, :password, :password_confirmation, person_attributes: [:firstName, :lastName, contact_info_attributes: [:email]])
 end

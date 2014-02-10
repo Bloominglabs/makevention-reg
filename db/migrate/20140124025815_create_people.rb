@@ -4,7 +4,6 @@ class CreatePeople < ActiveRecord::Migration
       #t.string :username
       t.string :firstName
       t.string :lastName
-      #t.ContactInfo :contactInfo
       #t.organization :organizations
       #t.registration :annualRegistrations
       t.datetime :birthdate
@@ -12,7 +11,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :selfNotes
       t.boolean :active
       t.string :adminNotes
-
+      t.belongs_to :contact_info
       t.timestamps
     end
   end
