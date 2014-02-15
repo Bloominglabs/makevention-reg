@@ -1,12 +1,12 @@
 class CreateExhibitSpaces < ActiveRecord::Migration
   def change
     create_table :exhibit_spaces do |t|
-      t.integer :floorSpaceRequirement
-      t.string :floorSpaceNote
+      t.integer :floor_space_requirement
+      t.string :floor_space_note
       t.string :activities
-      t.integer :tableCount
-      t.integer :chairCount
-      t.integer :locationPreference
+      t.integer :table_count
+      t.integer :chair_count
+      t.integer :location_preference
 
       t.timestamps
     end

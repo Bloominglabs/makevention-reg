@@ -4,18 +4,18 @@ one:
   email: MyString
   phone: MyString
   website: MyString
-  addressStreet1: MyString
-  addressStreet2: MyString
-  addressCity: MyString
-  addressState: MyString
-  addressZip: MyString
+  address_street_1: MyString
+  address_street_2: MyString
+  address_city: MyString
+  address_state: MyString
+  address_zip: MyString
 
 two:
   email: MyString
   phone: MyString
   website: MyString
-  addressStreet1: MyString
-  addressStreet2: MyString
-  addressCity: MyString
-  addressState: MyString
-  addressZip: MyString
+  address_street_1: MyString
+  address_street_2: MyString
+  address_city: MyString
+  address_state: MyString
+  address_zip: MyString

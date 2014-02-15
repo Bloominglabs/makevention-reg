@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131184954) do
+ActiveRecord::Schema.define(version: 20140215220132) do
 
   create_table "annual_registrations", force: true do |t|
-    t.integer  "eventId"
+    t.integer  "event_id"
     t.boolean  "sales"
     t.boolean  "paid"
     t.datetime "created_at"
@@ -25,22 +25,32 @@ ActiveRecord::Schema.define(version: 20140131184954) do
     t.string   "email"
     t.string   "phone"
     t.string   "website"
-    t.string   "addressStreet1"
-    t.string   "addressStreet2"
-    t.string   "addressCity"
-    t.string   "addressState"
-    t.string   "addressZip"
+    t.string   "address_street_1"
+    t.string   "address_street_2"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "reg_opens"
+    t.datetime "reg_closes"
+    t.datetime "event_starts"
+    t.datetime "event_ends"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "exhibit_resources", force: true do |t|
-    t.integer  "electricalRequirements"
-    t.integer  "noiseLevels"
+    t.integer  "electrical_requirements"
+    t.integer  "noise_levels"
     t.integer  "internet"
-    t.string   "radioFrequencies"
-    t.integer  "safetyIssues"
-    t.string   "safetyIssuesDescription"
+    t.string   "radio_frequencies"
+    t.integer  "safety_issues"
+    t.string   "safety_issues_description"
     t.boolean  "water"
     t.boolean  "exhaust"
     t.boolean  "sanitation"
@@ -50,31 +60,31 @@ ActiveRecord::Schema.define(version: 20140131184954) do
   end
 
   create_table "exhibit_spaces", force: true do |t|
-    t.integer  "floorSpaceRequirement"
-    t.string   "floorSpaceNote"
+    t.integer  "floor_space_requirement"
+    t.string   "floor_space_note"
     t.string   "activities"
-    t.integer  "tableCount"
-    t.integer  "chairCount"
-    t.integer  "locationPreference"
+    t.integer  "table_count"
+    t.integer  "chair_count"
+    t.integer  "location_preference"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "organizations", force: true do |t|
-    t.string   "orgName"
+    t.string   "name"
     t.integer  "contact_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|
-    t.string   "firstName"
-    t.string   "lastName"
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "birthdate"
-    t.string   "emergencyContact"
-    t.string   "selfNotes"
+    t.string   "emergency_contact"
+    t.string   "self_notes"
     t.boolean  "active"
-    t.string   "adminNotes"
+    t.string   "admin_notes"
     t.integer  "contact_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -92,5 +102,6 @@ ActiveRecord::Schema.define(version: 20140131184954) do
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

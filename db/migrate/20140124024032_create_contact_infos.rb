@@ -4,11 +4,11 @@ class CreateContactInfos < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.string :website
-      t.string :addressStreet1
-      t.string :addressStreet2
-      t.string :addressCity
-      t.string :addressState
-      t.string :addressZip
+      t.string :address_street_1
+      t.string :address_street_2
+      t.string :address_city
+      t.string :address_state
+      t.string :address_zip
 
       t.timestamps
     end

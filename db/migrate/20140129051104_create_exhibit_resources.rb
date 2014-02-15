@@ -1,12 +1,12 @@
 class CreateExhibitResources < ActiveRecord::Migration
   def change
     create_table :exhibit_resources do |t|
-      t.integer :electricalRequirements
-      t.integer :noiseLevels
+      t.integer :electrical_requirements
+      t.integer :noise_levels
       t.integer :internet
-      t.string :radioFrequencies
-      t.integer :safetyIssues
-      t.string :safetyIssuesDescription
+      t.string :radio_frequencies
+      t.integer :safety_issues
+      t.string :safety_issues_description
       t.boolean :water
       t.boolean :exhaust
       t.boolean :sanitation

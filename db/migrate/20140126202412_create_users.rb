@@ -10,5 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :person
       t.timestamps
     end
+      
+    add_index(:users, :username, :unique => true)
   end
 end

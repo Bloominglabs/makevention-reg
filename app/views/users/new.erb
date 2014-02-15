@@ -1,8 +1,7 @@
 <%= form_for @user, url: users_path do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited
-            this user from being saved:</h2>
+          <h2><%= pluralize(@user.errors.count, "error") %> prevented this user from being saved:</h2>
           <ul>
             <% @user.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
@@ -10,30 +9,30 @@
           </ul>
         </div>
     <% end %>
-    <p>
+    <div>
       <%= f.label :username %><br>
       <%= f.text_field :username %>
-    </p>
+    </div>
 
-    <p>
+    <div>
       <%= f.label :password %><br>
-      <%= f.text_field :password %>
-    </p>
+      <%= f.password_field :password %>
+    </div>
 
-    <p>
+    <div>
       <%= f.label :password_confirmation, "Confirmation" %><br/>
       <%= f.password_field :password_confirmation %>
-    </p>
+    </div>
 
     <%= f.fields_for :person do |p| %>
         <%#= render "person", :p => person %>
         <p>
-          <%= p.label :firstName %><br>
-          <%= p.text_field :firstName %>
+          <%= p.label :first_name %><br>
+          <%= p.text_field :first_name %>
         </p>
         <p>
-          <%= p.label :lastName %><br>
-          <%= p.text_field :lastName %>
+          <%= p.label :last_name %><br>
+          <%= p.text_field :last_name %>
         </p>
         <%= p.fields_for :contact_info, :hidden_field_id => false do |c| %>
             <p>

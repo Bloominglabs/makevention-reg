@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  eventId: 
+  event_id: 
   sales: false
   paid: false
 
 two:
-  eventId: 
+  event_id: 
   sales: false
   paid: false

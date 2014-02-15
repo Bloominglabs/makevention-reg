@@ -17,9 +17,11 @@ class PeopleController < ApplicationController
   end
 
   def update
+    @person = Person.find(params[:id])
   end
 
   def edit
+    @person = Person.find(params[:id])
   end
 
   def destroy
@@ -29,11 +31,11 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params.permit(:id))
+    @person = Person.find(params[:id])
   end
 end
 
 private
 def createperson_params
-  params.require(:person).permit! #(:firstName, :lastName, :selfNotes, user: [:username, :password, :password_confirmation])
+  params.require(:person).permit! #(:first_name, :last_name, :self_notes, user: [:username, :password, :password_confirmation])
 end

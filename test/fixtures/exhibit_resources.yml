@@ -1,24 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  electricalRequirements: 
-  noiseLevels: 
+  electrical_requirements: 
+  noise_levels: 
   internet: 
-  radioFrequencies: MyString
-  safetyIssues: 
-  safetyIssuesDescription: MyString
+  radio_frequencies: MyString
+  safety_issues: 
+  safety_issues_description: MyString
   water: false
   exhaust: false
   sanitation: false
   other: MyString
 
 two:
-  electricalRequirements: 
-  noiseLevels: 
+  electrical_requirements: 
+  noise_levels: 
   internet: 
-  radioFrequencies: MyString
-  safetyIssues: 
-  safetyIssuesDescription: MyString
+  radio_frequencies: MyString
+  safety_issues: 
+  safety_issues_description: MyString
   water: false
   exhaust: false
   sanitation: false

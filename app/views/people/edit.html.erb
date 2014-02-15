@@ -1,2 +1,40 @@
-<h1>Person#edit</h1>
-<p>Find me in app/views/person/edit.html.erb</p>
+<%= form_for(@person) do |f| %>
+    <p>
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </p>
+    <%= f.fields_for :user do |c| %>
+        <p>
+          <%= c.label :username %><br>
+          <%= c.object.username %>
+        </p>
+    <% end %>
+    <%= f.fields_for :contact_info do |c| %>
+        <p>
+          <%= c.label :email %><br>
+          <%= c.text_field :email %>
+        </p>
+    <% end %>
+
+    <p>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    	      t.datetime :birthdate
+      t.string :emergency_contact
+
+    </p>
+    <p>
+      <%= f.label :self_notes %><br>
+      <%= f.text_area :self_notes %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', people_path %>

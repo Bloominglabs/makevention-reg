@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Makevention!"
-      redirect_to @user
+      redirect_to :controller =>  'people', :action => 'show', :id => @user.person.id
     else
       render 'new'
     end
@@ -45,5 +45,5 @@ end
 
 private
 def createuser_params
-  params.require(:user).permit(:username, :password, :password_confirmation, person_attributes: [:firstName, :lastName, contact_info_attributes: [:email]])
+  params.require(:user).permit(:username, :password, :password_confirmation, person_attributes: [:first_name, :last_name, contact_info_attributes: [:email]])
 end

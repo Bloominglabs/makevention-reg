@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: {minimum: 4}
   has_secure_password
 #  validates :password, presence: true, length: {minimum: 4}
-  validates :password, :confirmation => true
-  validates :password_confirmation, :presence => true
+#  validates :password, :confirmation => true
+#  validates :password_confirmation, :presence => true
   belongs_to :person, autosave: true
 #  accepts_nested_attributes_for :person
   before_save { self.username = username.downcase }
