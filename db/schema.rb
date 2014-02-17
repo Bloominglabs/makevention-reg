@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215220132) do
-
-  create_table "annual_registrations", force: true do |t|
-    t.integer  "event_id"
-    t.boolean  "sales"
-    t.boolean  "paid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140217011048) do
 
   create_table "contact_infos", force: true do |t|
     t.string   "email"
@@ -30,9 +22,26 @@ ActiveRecord::Schema.define(version: 20140215220132) do
     t.string   "address_city"
     t.string   "address_state"
     t.string   "address_zip"
+    t.integer  "current",          default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "event_registrations", force: true do |t|
+    t.boolean  "has_sales"
+    t.decimal  "exhibit_rate",    precision: 8, scale: 2
+    t.decimal  "pledge",          precision: 8, scale: 2
+    t.decimal  "amount_paid",     precision: 8, scale: 2
+    t.boolean  "paid_in_full"
+    t.integer  "organizer",                               default: 0, null: false
+    t.integer  "sponsor",                                 default: 0, null: false
+    t.integer  "event_id"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_registrations", ["event_id", "organization_id"], name: "index_event_registrations_on_event_id_and_organization_id", unique: true
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -45,11 +54,11 @@ ActiveRecord::Schema.define(version: 20140215220132) do
   end
 
   create_table "exhibit_resources", force: true do |t|
-    t.integer  "electrical_requirements"
-    t.integer  "noise_levels"
-    t.integer  "internet"
+    t.integer  "electrical_requirements",   default: 0, null: false
+    t.integer  "noise_levels",              default: 0, null: false
+    t.integer  "internet",                  default: 0, null: false
     t.string   "radio_frequencies"
-    t.integer  "safety_issues"
+    t.integer  "safety_issues",             default: 0, null: false
     t.string   "safety_issues_description"
     t.boolean  "water"
     t.boolean  "exhaust"
@@ -65,10 +74,21 @@ ActiveRecord::Schema.define(version: 20140215220132) do
     t.string   "activities"
     t.integer  "table_count"
     t.integer  "chair_count"
-    t.integer  "location_preference"
+    t.integer  "location_preference",     default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "org_people", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "person_id"
+    t.integer  "org_role",        default: 0, null: false
+    t.integer  "active",          default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "org_people", ["organization_id", "person_id"], name: "index_org_people_on_organization_id_and_person_id", unique: true
 
   create_table "organizations", force: true do |t|
     t.string   "name"
@@ -83,7 +103,6 @@ ActiveRecord::Schema.define(version: 20140215220132) do
     t.datetime "birthdate"
     t.string   "emergency_contact"
     t.string   "self_notes"
-    t.boolean  "active"
     t.string   "admin_notes"
     t.integer  "contact_info_id"
     t.datetime "created_at"
@@ -93,8 +112,7 @@ ActiveRecord::Schema.define(version: 20140215220132) do
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password_digest"
-    t.boolean  "active"
-    t.boolean  "verified"
+    t.integer  "active",          default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"

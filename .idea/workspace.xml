@@ -155,7 +155,7 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20140129051104_create_exhibit_resources.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140129051654_create_exhibit_spaces.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20140129052110_create_annual_registrations.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140129052110_create_event_registrations.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
@@ -878,7 +878,7 @@
       <created>1390883533913</created>
       <updated>1390883533913</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added new models: ExhibitSpace, ExhibitResources AnnualRegistration&#10;Created navigation properties">
+    <task id="LOCAL-00006" summary="Added new models: ExhibitSpace, ExhibitResources EventRegistration&#10;Created navigation properties">
       <created>1390973607931</created>
       <updated>1390973607950</updated>
     </task>
@@ -935,7 +935,7 @@
     <MESSAGE value="Added Users and Organizations" />
     <MESSAGE value="Added Twitter Bootstrap via bootstrap-sass" />
     <MESSAGE value="Playing with Bootstrap prefabs" />
-    <MESSAGE value="Added new models: ExhibitSpace, ExhibitResources AnnualRegistration&#10;Created navigation properties" />
+    <MESSAGE value="Added new models: ExhibitSpace, ExhibitResources EventRegistration&#10;Created navigation properties" />
     <MESSAGE value="Finally working nested association creation" />
     <MESSAGE value="Fixed associations between person/org and contact_info&#10;Got 2-level nested user create page working" />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed associations between person/org and contact_info&#10;Got 2-level nested user create page working" />
@@ -1112,7 +1112,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140129052110_create_annual_registrations.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140129052110_create_event_registrations.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
           <folding />

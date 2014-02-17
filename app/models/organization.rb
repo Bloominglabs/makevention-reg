@@ -1,4 +1,9 @@
 class Organization < ActiveRecord::Base
-  has_many :people
   belongs_to :contact_info
+  
+  has_many :event_registrations
+  has_many :org_people
+
+  has_many :events, through: :event_registrations
+  has_many :people, through: :org_people    
 end

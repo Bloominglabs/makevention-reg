@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AnnualRegistrationTest < ActiveSupport::TestCase
+class EventRegistrationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -14,19 +14,18 @@
         </p>
     <% end %>
     <%= f.fields_for :contact_info do |c| %>
-        <p>
-          <%= c.label :email %><br>
-          <%= c.text_field :email %>
-        </p>
+		<%= render "contact_info", :f => c %>
     <% end %>
 
+	<p>
+		<%= f.label :birthdate %><br>
+		<%= f.date_field :birthdate%>
+	</p>
     <p>
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name %>
-    	      t.datetime :birthdate
-      t.string :emergency_contact
-
+	  <%= f.label :emergency_contact %><br>
+	  <%= f.text_area :emergency_contact %>
     </p>
+
     <p>
       <%= f.label :self_notes %><br>
       <%= f.text_area :self_notes %>

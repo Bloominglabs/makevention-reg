@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def new
-    #@contact_info = ContactInfo.new
     @person = Person.new
     @person.build_contact_info
     @user = User.new
@@ -13,22 +12,28 @@ class UsersController < ApplicationController
   end
 
   def create
-    ##p createuser_params
-    ##p params[:user]
-    ##p params[:user][:person_attributes]
-    #@newperson_params = params[:user][:person_attributes]
-    #p @newperson_params
     @user = User.new(createuser_params)
-    #p @user
-    #@person = Person.new(@newperson_params)
-    #p @person
-    #@user.build_person
-    #@user.person = @person #Person.create(params[:user][:person_attributes])
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to Makevention!"
-      redirect_to :controller =>  'people', :action => 'show', :id => @user.person.id
-    else
+
+    # if (User.exists?(:username => @user.username)) #pre-check
+      # if (@user.errors == nil)
+        # @user.errors = ActiveModel::Errors.new(@user)
+      # end
+      # @user.errors.add(:username, "The username you've chosen is already in use.  Please choose a different username.")
+    # end
+
+    begin
+      if @user.save
+        sign_in @user
+        flash[:success] = "Welcome to Makevention!"
+        redirect_to :controller =>  'people', :action => 'edit', :id => @user.person.id
+      else
+        render 'new'
+      end
+    rescue ActiveRecord::RecordNotUnique #insurance
+      if (@user.errors == nil)
+        @user.errors = ActiveModel::Errors.new(@user)
+      end
+      @user.errors.add(:username, "The username you've chosen is already in use.  Please choose a different username.")
       render 'new'
     end
   end

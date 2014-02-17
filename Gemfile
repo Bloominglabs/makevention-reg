@@ -48,3 +48,6 @@ gem 'debugger', group: [:development, :test]
 gem 'execjs'
 # gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'bootstrap-sass'
+
+gem 'cancan'
+gem 'bitfields'

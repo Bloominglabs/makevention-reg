@@ -10,6 +10,8 @@ class CreateContactInfos < ActiveRecord::Migration
       t.string :address_state
       t.string :address_zip
 
+      t.integer :current, :default => 0, :null => false
+
       t.timestamps
     end
   end

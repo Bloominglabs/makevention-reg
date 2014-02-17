@@ -6,7 +6,7 @@ class CreateExhibitSpaces < ActiveRecord::Migration
       t.string :activities
       t.integer :table_count
       t.integer :chair_count
-      t.integer :location_preference
+      t.integer :location_preference, :default => 0, :null => false
 
       t.timestamps
     end

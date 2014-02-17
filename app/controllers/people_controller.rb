@@ -1,27 +1,16 @@
 class PeopleController < ApplicationController
-  def new
-    @person = Person.new
-  end
-
-  def create
-
-    @person = Person.new(createperson_params)
-    @person.build_user(params[:user])
-    if @person.save
-      sign_in @person.user
-      flash[:success] = "Welcome to the Sample App!"
+  def update
+    @person = Person.find_by_id(params[:id])
+    if @person.update_attributes(edit_person_params)
+      flash[:success] = "Your account information has been updated."
       redirect_to @person
     else
-      render 'new'
+      render 'edit'
     end
   end
 
-  def update
-    @person = Person.find(params[:id])
-  end
-
   def edit
-    @person = Person.find(params[:id])
+    @person = Person.find_by_id(params[:id])
   end
 
   def destroy
@@ -36,6 +25,6 @@ class PeopleController < ApplicationController
 end
 
 private
-def createperson_params
-  params.require(:person).permit! #(:first_name, :last_name, :self_notes, user: [:username, :password, :password_confirmation])
+def edit_person_params
+  params.require(:person).permit(:id, :first_name, :last_name, :self_notes, :birthdate, :emergency_contact, user_attributes: [:id], contact_info_attributes: [:id, :email, :phone, :website, :address_street_1, :address_street_2, :address_city, :address_state, :address_zip ])
 end
