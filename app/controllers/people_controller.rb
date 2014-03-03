@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  before_action :signed_in_user
+
   def update
     @person = Person.find_by_id(params[:id])
     if @person.update_attributes(edit_person_params)
@@ -11,6 +13,11 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find_by_id(params[:id])
+    if can? :manage, @person
+      render 'edit'
+    else
+      redirect_to @person
+    end   
   end
 
   def destroy

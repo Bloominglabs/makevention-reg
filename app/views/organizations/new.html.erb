@@ -1,0 +1,25 @@
+<%= form_for :organization, url: organizations_path do |f| %>
+    <% if @organization.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@organization.errors.count, "error") %> prevented this record from being saved:</h2>
+          <ul>
+            <% @organization.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <%= f.fields_for :contact_info do |c| %>
+		<%= render "contact_info", :f => c %>
+    <% end %>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', people_path %>

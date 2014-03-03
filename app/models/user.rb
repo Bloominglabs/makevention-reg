@@ -17,10 +17,26 @@ class User < ActiveRecord::Base
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
-
+  
+  ROLES = %w[admin moderator author banned]
+  
+  def roles=(roles)
+    self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
+  end
+  
+  def roles
+    ROLES.reject do |r|
+      ((roles_mask.to_i || 0) & 2**ROLES.index(r)).zero?
+    end
+  end
+  
+  def is?(role)
+    roles.include?(role.to_s)
+  end
+  
 private
   def create_remember_token
-    self.password = User.encrypt(User.new_remember_token)
+    self.remember_token = User.encrypt(User.new_remember_token)
   end
 
 end
