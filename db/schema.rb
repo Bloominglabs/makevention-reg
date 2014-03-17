@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140301171614) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contact_infos", force: true do |t|
     t.string   "email"
     t.string   "phone"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140301171614) do
     t.datetime "updated_at"
   end
 
-  add_index "event_registrations", ["event_id", "organization_id"], name: "index_event_registrations_on_event_id_and_organization_id", unique: true
+  add_index "event_registrations", ["event_id", "organization_id"], name: "index_event_registrations_on_event_id_and_organization_id", unique: true, using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -88,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140301171614) do
     t.datetime "updated_at"
   end
 
-  add_index "org_people", ["organization_id", "person_id"], name: "index_org_people_on_organization_id_and_person_id", unique: true
+  add_index "org_people", ["organization_id", "person_id"], name: "index_org_people_on_organization_id_and_person_id", unique: true, using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"
@@ -120,7 +123,7 @@ ActiveRecord::Schema.define(version: 20140301171614) do
     t.integer  "roles_mask"
   end
 
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
