@@ -33,7 +33,7 @@ class Ability
     can :manage, Person, :user => { :id => user.id }
     
     can :manage, Organization do |organization|
-      organization.org_people.where(person: user.person, is? :admin)
+      organization.org_people.where(person: user.person).and(is? :admin)
     end
     
   end
