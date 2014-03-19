@@ -115,4 +115,36 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+# Provisioner config
+  config.vm.provision :chef_solo do |chef|
+    chef.add_recipe 'apt'
+    chef.add_recipe 'postgresql::client'
+    chef.add_recipe 'postgresql::server'
+    chef.add_recipe 'build-essential'
+    chef.add_recipe 'rvm::system'
+    chef.add_recipe 'git'
+    chef.json = {
+      :postgresql => {
+        :version => '9.3'
+      },
+      "postgresql" => {
+        "password" => {
+          "postgres" => "aw98uaw9pv8jearvp98jer98"
+        }
+      },
+#      "database" => {
+#        "create" => ["aisisplatform"]
+#      },
+#      :git   => {
+#        :prefix => "/usr/local"
+#      },
+#      :rvm => {
+#        'rubies' => [ 'ruby-2.1.0' ],
+#        'default_ruby' => 'ruby-2.1.0',
+#        'vagrant' => {
+#          :system_chef_solo => '/usr/bin/chef-solo'
+#        }
+#      },
+    }
+  end
 end
