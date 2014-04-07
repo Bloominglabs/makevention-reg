@@ -1,9 +1,23 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #49c5dd;
+  color: #444;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+.starter-template {
+  background-color: #fff;
+}
+
+input[type=text], input[type=password] {
+  width: 20em;
+  display: block;
+  clear: both;
+}
+
+label {
+  display: flex;
 }
 
 p, ol, ul, td {

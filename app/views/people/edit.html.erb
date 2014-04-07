@@ -1,15 +1,15 @@
 <%= form_for(@person) do |f| %>
     <p>
-      <%= f.label :first_name %><br>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </p>
     <p>
-      <%= f.label :last_name %><br>
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </p>
     <%= f.fields_for :user do |c| %>
         <p>
-          <%= c.label :username %><br>
+          <%= c.label :username %>
           <%= c.object.username %>
         </p>
     <% end %>
@@ -18,16 +18,16 @@
     <% end %>
 
 	<p>
-		<%= f.label :birthdate %><br>
+		<%= f.label :birthdate %>
 		<%= f.date_field :birthdate%>
 	</p>
     <p>
-	  <%= f.label :emergency_contact %><br>
+	  <%= f.label :emergency_contact %>
 	  <%= f.text_area :emergency_contact %>
     </p>
 
     <p>
-      <%= f.label :self_notes %><br>
+      <%= f.label :self_notes %>
       <%= f.text_area :self_notes %>
     </p>
 

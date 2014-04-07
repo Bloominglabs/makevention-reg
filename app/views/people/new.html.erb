@@ -10,18 +10,18 @@
         </div>
     <% end %>
     <p>
-      <%= f.label :first_name %><br>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </p>
     <p>
-      <%= f.label :last_name %><br>
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </p>
     <%= f.fields_for :user do |user| %>
         <%= render "user", :f => user %>
     <% end %>
     <p>
-      <%= f.label :self_notes %><br>
+      <%= f.label :self_notes %>
       <%= f.text_area :self_notes %>
     </p>
 

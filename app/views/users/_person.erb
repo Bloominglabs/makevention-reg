@@ -1,14 +1,14 @@
     <p>
-      <%= f.label :first_name %><br>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </p>
     <p>
-      <%= f.label :last_name %><br>
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </p>
     <%= f.fields_for :contact_info do |contact_info| %>
         <p>
-          <%= contact_info.label :email %><br>
+          <%= contact_info.label :email %>
           <%= contact_info.text_field :email %>
         </p>
     <% end %>
